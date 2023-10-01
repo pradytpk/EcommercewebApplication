@@ -98,8 +98,7 @@ public class ProductServiceImplementation implements ProductService {
 
 		System.out.println("delete product " + product.getId() + " - " + productId);
 		product.getSizes().clear();
-//		productRepository.save(product);
-//		product.getCategory().
+
 		productRepository.delete(product);
 
 		return "Product deleted Successfully";
@@ -108,15 +107,13 @@ public class ProductServiceImplementation implements ProductService {
 	@Override
 	public Product updateProduct(Long productId, Product req) throws ProductException {
 		Product product = findProductById(productId);
-
-		if (req.getQuantity() != 0) {
-			product.setQuantity(req.getQuantity());
+		if(product != null) {
+			req.setCategory(product.getCategory());
+			req.setSizes(product.getSizes());
+			req.setCreatedAt(LocalDateTime.now());
+			return productRepository.save(req);
 		}
-		if (req.getDescription() != null) {
-			product.setDescription(req.getDescription());
-		}
-
-		return productRepository.save(product);
+		return null;
 	}
 
 	@Override

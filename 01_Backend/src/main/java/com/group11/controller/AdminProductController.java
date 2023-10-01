@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.group11.exception.ProductException;
 import com.group11.modal.Product;
@@ -63,7 +64,10 @@ public class AdminProductController {
 			throws ProductException {
 
 		Product updatedProduct = productService.updateProduct(productId, req);
-
+		if (updatedProduct == null) {
+			return new ResponseEntity<Product>(updatedProduct, HttpStatus.BAD_REQUEST);
+		}
+		new RedirectView("http://localhost:3000/admin/products");
 		return new ResponseEntity<Product>(updatedProduct, HttpStatus.OK);
 	}
 
