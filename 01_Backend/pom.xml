@@ -8,7 +8,7 @@
 		<version>3.0.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.zosh</groupId>
+	<groupId>com.group11</groupId>
 	<artifactId>e-commerce</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>e-commerce</name>
@@ -78,9 +78,6 @@
 	    	<artifactId>json</artifactId>
 	    	<version>20210307</version>
 		</dependency>
-
-		
-		<!-- https://mvnrepository.com/artifact/com.razorpay/razorpay-java -->
 <dependency>
     <groupId>com.razorpay</groupId>
     <artifactId>razorpay-java</artifactId>
