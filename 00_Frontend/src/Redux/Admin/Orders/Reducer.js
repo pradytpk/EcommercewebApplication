@@ -20,12 +20,12 @@ import {
   SHIP_ORDER_FAILURE,
   SHIP_ORDER_REQUEST,
   SHIP_ORDER_SUCCESS,
-} from "./ActionType";
+} from './ActionType';
 
 const initialState = {
   loading: false,
   orders: [],
-  error: "",
+  error: '',
 };
 
 const adminOrderReducer = (state = initialState, action) => {
@@ -39,7 +39,7 @@ const adminOrderReducer = (state = initialState, action) => {
       return {
         loading: false,
         orders: action.payload,
-        error: "",
+        error: '',
       };
     case GET_ORDERS_FAILURE:
       return {
@@ -93,11 +93,15 @@ const adminOrderReducer = (state = initialState, action) => {
     case DELETE_ORDER_REQUEST:
       return { ...state, loading: true };
     case DELETE_ORDER_SUCCESS:
-      return { ...state, loading: false, orders:state.orders.filter((order)=>order.id!==action.payload) };
+      return {
+        ...state,
+        loading: false,
+        orders: state.orders.filter((order) => order.id !== action.payload),
+      };
     case DELETE_ORDER_FAILURE:
       return { ...state, loading: false, error: action.payload };
 
-      case SHIP_ORDER_REQUEST:
+    case SHIP_ORDER_REQUEST:
       return {
         ...state,
         isLoading: true,
@@ -107,7 +111,7 @@ const adminOrderReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        shipped:action.payload
+        shipped: action.payload,
       };
     case SHIP_ORDER_FAILURE:
       return {

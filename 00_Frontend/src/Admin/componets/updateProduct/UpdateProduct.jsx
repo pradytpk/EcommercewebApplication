@@ -4,7 +4,6 @@ import { Typography } from '@mui/material';
 import { Grid, TextField, Button } from '@mui/material';
 import { Fragment } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import "./CreateProductForm.css";
 import { useDispatch, useSelector } from 'react-redux';
 import {
   findProductById,
@@ -69,7 +68,6 @@ const UpdateProductForm = () => {
       const updatedProductData = { ...productData };
       for (let key in updatedProductData) {
         updatedProductData[key] = customersProduct.product[key];
-        console.log(customersProduct.product[key], '--------', key);
       }
       // Update the state with the new productData
       setProductData(updatedProductData);
@@ -81,14 +79,12 @@ const UpdateProductForm = () => {
       <Typography
         variant='h3'
         sx={{ textAlign: 'center' }}
-        className='py-10 text-center'
-      >
+        className='py-10 text-center'>
         Update Product
       </Typography>
       <form
         onSubmit={handleSubmit}
-        className='createProductContainer min-h-screen'
-      >
+        className='createProductContainer min-h-screen'>
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <TextField
@@ -234,8 +230,7 @@ const UpdateProductForm = () => {
               sx={{ p: 1.8 }}
               className='py-20'
               size='large'
-              type='submit'
-            >
+              type='submit'>
               Update Product
             </Button>
           </Grid>

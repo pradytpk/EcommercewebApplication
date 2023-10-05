@@ -1,7 +1,3 @@
-import axios from 'axios';
-
-import { Redirect } from 'react-router-dom';
-
 import {
   FIND_PRODUCTS_BY_CATEGORY_REQUEST,
   FIND_PRODUCTS_BY_CATEGORY_SUCCESS,
@@ -39,7 +35,7 @@ export const findProducts = (reqData) => async (dispatch) => {
     dispatch({ type: FIND_PRODUCTS_BY_CATEGORY_REQUEST });
 
     const { data } = await api.get(
-      `/api/products?color=${colors}&size=${sizes}&minPrice=${minPrice}&maxPrice=${maxPrice}&minDiscount=${minDiscount}&category=${category}&stock=${stock}&sort=${sort}&pageNumber=${pageNumber}&pageSize=${pageSize}`
+      `/api/products?color=${colors}&size=${sizes}&minPrice=${minPrice}&maxPrice=${maxPrice}&minDiscount=${minDiscount}&category=${category}&stock=${stock}&sort=${sort}&pageNumber=${pageNumber}&pageSize=${pageSize}`,
     );
 
     console.log('get product by category - ', data);
@@ -86,7 +82,7 @@ export const createProduct = (product) => async (dispatch) => {
 
     const { data } = await api.post(
       `${API_BASE_URL}/api/admin/products/`,
-      product.data
+      product.data,
     );
 
     dispatch({
@@ -112,7 +108,7 @@ export const updateProduct = (product, productId) => async (dispatch) => {
     console.log(product, 'before update');
     const { data } = await api.put(
       `${API_BASE_URL}/api/admin/products/${productId}/update`,
-      product
+      product,
     );
 
     dispatch({

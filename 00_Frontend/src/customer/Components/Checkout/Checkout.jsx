@@ -36,10 +36,6 @@ export default function Checkout() {
     setActiveStep(0);
   };
 
-  const handlePayment = () => {
-    console.log('handle payment');
-  };
-
   return (
     <Box className='px-5 lg:px-32 ' sx={{ width: '100%' }}>
       <Stepper activeStep={step}>
@@ -69,25 +65,25 @@ export default function Checkout() {
           <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
             <Button
               color='inherit'
+              // eslint-disable-next-line eqeqeq
               disabled={step == 2}
               onClick={handleBack}
-              sx={{ mr: 1 }}
-            >
+              sx={{ mr: 1 }}>
               Back
             </Button>
             <Box sx={{ flex: '1 1 auto' }} />
           </Box>
-          {/* <Typography sx={{ my: 6 }}>Title</Typography> */}
 
           <div className='my-5'>
-            {step == 2 ? (
-              <AddDeliveryAddressForm handleNext={handleNext} />
-            ) : (
-              <OrderSummary />
-            )}
+            {
+              // eslint-disable-next-line eqeqeq
+              step == 2 ? (
+                <AddDeliveryAddressForm handleNext={handleNext} />
+              ) : (
+                <OrderSummary />
+              )
+            }
           </div>
-
-          {/* <AddDeliveryAddressForm handleNext={handleNext} /> */}
         </React.Fragment>
       )}
     </Box>

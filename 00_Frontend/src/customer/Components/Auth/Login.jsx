@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Grid, TextField, Button, Box, Snackbar, Alert } from '@mui/material';
+import { Grid, TextField, Button, Snackbar, Alert } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUser, login } from '../../../Redux/Auth/Action';
@@ -25,7 +25,7 @@ export default function LoginUserForm({ handleNext }) {
         }
       }); // Assuming your login action returns data when successful
     }
-  }, [dispatch, jwt]);
+  }, [dispatch, jwt, navigate]);
   useEffect(() => {
     if (auth.user || auth.error) setOpenSnackBar(true);
   }, [auth.error, auth.user]);

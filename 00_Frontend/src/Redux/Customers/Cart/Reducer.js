@@ -11,7 +11,7 @@ import {
   UPDATE_CART_ITEM_FAILURE,
   UPDATE_CART_ITEM_REQUEST,
   UPDATE_CART_ITEM_SUCCESS,
-} from "./ActionType";
+} from './ActionType';
 
 const initialState = {
   cart: null,
@@ -41,7 +41,7 @@ const cartReducer = (state = initialState, action) => {
       return {
         ...state,
         cartItems: action.payload.cartItems,
-        cart:action.payload,
+        cart: action.payload,
         loading: false,
       };
     case GET_CART_FAILURE:
@@ -59,16 +59,14 @@ const cartReducer = (state = initialState, action) => {
     case REMOVE_CART_ITEM_SUCCESS:
       return {
         ...state,
-        cartItems: state.cartItems.filter(
-          (item) => item.id !== action.payload
-        ),
+        cartItems: state.cartItems.filter((item) => item.id !== action.payload),
         loading: false,
       };
     case UPDATE_CART_ITEM_SUCCESS:
       return {
         ...state,
         cartItems: state.cartItems.map((item) =>
-          item.id === action.payload.id ? action.payload : item
+          item.id === action.payload.id ? action.payload : item,
         ),
         loading: false,
       };
