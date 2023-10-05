@@ -18,39 +18,37 @@ import {
   TableHead,
   TableRow,
   Typography,
-} from "@mui/material";
+} from '@mui/material';
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
-import { useNavigate } from "react-router-dom";
-import { Grid, Select } from "@mui/material";
-import { dressPage1 } from "../../../Data/dress/page1";
-import { useDispatch, useSelector } from "react-redux";
+import { Grid, Select } from '@mui/material';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   confirmOrder,
   deleteOrder,
   deliveredOrder,
   getOrders,
   shipOrder,
-} from "../../../Redux/Admin/Orders/Action";
-import { configure } from "@testing-library/react";
+} from '../../../Redux/Admin/Orders/Action';
 
 const OrdersTable = () => {
-  const navigate = useNavigate();
-  const [formData, setFormData] = useState({ status: "", sort: "" });
-  const [orderStatus, setOrderStatus] = useState("");
+  const [formData, setFormData] = useState({ status: '', sort: '' });
+  const [orderStatus, setOrderStatus] = useState('');
   const dispatch = useDispatch();
-  const jwt = localStorage.getItem("jwt");
+  const jwt = localStorage.getItem('jwt');
   const { adminsOrder } = useSelector((store) => store);
   const [anchorElArray, setAnchorElArray] = useState([]);
 
   useEffect(() => {
     dispatch(getOrders({ jwt }));
-  }, [jwt,adminsOrder.delivered, adminsOrder.shipped, adminsOrder.confirmed]);
-
-  // useEffect(()=>{
-  //   dispatch(getOrders({jwt}))
-  // },[])
+  }, [
+    jwt,
+    adminsOrder.delivered,
+    adminsOrder.shipped,
+    adminsOrder.confirmed,
+    dispatch,
+  ]);
 
   const handleUpdateStatusMenuClick = (event, index) => {
     const newAnchorElArray = [...anchorElArray];
@@ -71,25 +69,26 @@ const OrdersTable = () => {
     setFormData({ ...formData, [name]: value });
   };
   function handlePaginationChange(event, value) {
-    console.log("Current page:", value);
+    console.log('Current page:', value);
   }
 
   const handleConfirmedOrder = (orderId, index) => {
     handleUpdateStatusMenuClose(index);
     dispatch(confirmOrder(orderId));
-    setOrderStatus("CONFIRMED")
+    setOrderStatus('CONFIRMED');
   };
 
-  const handleShippedOrder = (orderId,index) => {
+  const handleShippedOrder = (orderId, index) => {
     handleUpdateStatusMenuClose(index);
-    dispatch(shipOrder(orderId))
-    setOrderStatus("ShIPPED")
+    dispatch(shipOrder(orderId));
+    setOrderStatus('ShIPPED');
   };
 
-  const handleDeliveredOrder = (orderId,index) => {
+  const handleDeliveredOrder = (orderId, index) => {
     handleUpdateStatusMenuClose(index);
-    dispatch(deliveredOrder(orderId))
-    setOrderStatus("DELIVERED")
+    dispatch(deliveredOrder(orderId));
+    setOrderStatus('DELIVERED');
+    console.log(orderStatus);
   };
 
   const handleDeleteOrder = (orderId) => {
@@ -97,69 +96,61 @@ const OrdersTable = () => {
     dispatch(deleteOrder(orderId));
   };
 
-  //   useEffect(()=>{
-  // setUpdateOrderStatus(item.orderStatus==="PENDING"?"PENDING": item.orderStatus==="PLACED"?"CONFIRMED":item.orderStatus==="CONFIRMED"?"SHIPPED":"DELEVERED")
-  //   },[adminsOrder.orders])
-
   return (
     <Box>
-      <Card className="p-3">
+      <Card className='p-3'>
         <CardHeader
-          title="Sort"
+          title='Sort'
           sx={{
             pt: 0,
-            alignItems: "center",
-            "& .MuiCardHeader-action": { mt: 0.6 },
+            alignItems: 'center',
+            '& .MuiCardHeader-action': { mt: 0.6 },
           }}
         />
         <Grid container spacing={2}>
           <Grid item xs={4}>
             <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label">Status</InputLabel>
+              <InputLabel id='demo-simple-select-label'>Status</InputLabel>
               <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
+                labelId='demo-simple-select-label'
+                id='demo-simple-select'
                 value={formData.status}
-                label="Status"
-                onChange={handleChange}
-              >
-                <MenuItem value={"PLACED"}>PLACED</MenuItem>
-                <MenuItem value={"CONFIRMED"}>CONFIRMED</MenuItem>
-                <MenuItem value={"DELIVERED"}>DELIVERED</MenuItem>
-                <MenuItem value={"CANCELD"}>CANCLED</MenuItem>
+                label='Status'
+                onChange={handleChange}>
+                <MenuItem value={'PLACED'}>PLACED</MenuItem>
+                <MenuItem value={'CONFIRMED'}>CONFIRMED</MenuItem>
+                <MenuItem value={'DELIVERED'}>DELIVERED</MenuItem>
+                <MenuItem value={'CANCELD'}>CANCLED</MenuItem>
               </Select>
             </FormControl>
           </Grid>
           <Grid item xs={4}>
             <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label">Sort By</InputLabel>
+              <InputLabel id='demo-simple-select-label'>Sort By</InputLabel>
               <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
+                labelId='demo-simple-select-label'
+                id='demo-simple-select'
                 value={formData.sort}
-                label="Sort By"
-                onChange={handleChange}
-              >
-                <MenuItem value={"Newest"}>Newest</MenuItem>
-                <MenuItem value={"Older"}>Older</MenuItem>
+                label='Sort By'
+                onChange={handleChange}>
+                <MenuItem value={'Newest'}>Newest</MenuItem>
+                <MenuItem value={'Older'}>Older</MenuItem>
               </Select>
             </FormControl>
           </Grid>
         </Grid>
       </Card>
-      <Card className="mt-2">
+      <Card className='mt-2'>
         <CardHeader
-          title="All Orders"
+          title='All Orders'
           sx={{
             pt: 2,
-            alignItems: "center",
-            "& .MuiCardHeader-action": { mt: 0.6 },
+            alignItems: 'center',
+            '& .MuiCardHeader-action': { mt: 0.6 },
           }}
-         
-         
         />
         <TableContainer>
-          <Table sx={{ minWidth: 800 }} aria-label="table in dashboard">
+          <Table sx={{ minWidth: 800 }} aria-label='table in dashboard'>
             <TableHead>
               <TableRow>
                 <TableCell>Image</TableCell>
@@ -167,9 +158,9 @@ const OrdersTable = () => {
 
                 <TableCell>Price</TableCell>
                 <TableCell>Id</TableCell>
-                <TableCell sx={{ textAlign: "center" }}>Status</TableCell>
-                <TableCell sx={{ textAlign: "center" }}>Update</TableCell>
-                <TableCell sx={{ textAlign: "center" }}>Delete</TableCell>
+                <TableCell sx={{ textAlign: 'center' }}>Status</TableCell>
+                <TableCell sx={{ textAlign: 'center' }}>Update</TableCell>
+                <TableCell sx={{ textAlign: 'center' }}>Delete</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -177,33 +168,36 @@ const OrdersTable = () => {
                 <TableRow
                   hover
                   key={item.name}
-                  sx={{ "&:last-of-type td, &:last-of-type th": { border: 0 } }}
-                >
+                  sx={{
+                    '&:last-of-type td, &:last-of-type th': { border: 0 },
+                  }}>
                   <TableCell sx={{}}>
-                  <AvatarGroup max={4} sx={{justifyContent: 'start'}}>
-      {item.orderItems.map((orderItem)=><Avatar  alt={item.title} src={orderItem.product.imageUrl} /> )}
-    </AvatarGroup>
-                    {" "}
+                    <AvatarGroup max={4} sx={{ justifyContent: 'start' }}>
+                      {item.orderItems.map((orderItem) => (
+                        <Avatar
+                          alt={item.title}
+                          src={orderItem.product.imageUrl}
+                        />
+                      ))}
+                    </AvatarGroup>{' '}
                   </TableCell>
 
                   <TableCell
-                    sx={{ py: (theme) => `${theme.spacing(0.5)} !important` }}
-                  >
-                    <Box sx={{ display: "flex", flexDirection: "column" }}>
+                    sx={{ py: (theme) => `${theme.spacing(0.5)} !important` }}>
+                    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                       <Typography
                         sx={{
                           fontWeight: 500,
-                          fontSize: "0.875rem !important",
-                        }}
-                      >
+                          fontSize: '0.875rem !important',
+                        }}>
                         {item?.orderItems.map((order) => (
-                          <span className=""> {order.product.title},</span>
+                          <span className=''> {order.product.title},</span>
                         ))}
                       </Typography>
-                      <Typography variant="caption">
+                      <Typography variant='caption'>
                         {item?.orderItems.map((order) => (
-                          <span className="opacity-60">
-                            {" "}
+                          <span className='opacity-60'>
+                            {' '}
                             {order.product.brand},
                           </span>
                         ))}
@@ -213,36 +207,38 @@ const OrdersTable = () => {
 
                   <TableCell>{item.totalPrice}</TableCell>
                   <TableCell>{item.id}</TableCell>
-                  <TableCell className="text-white">
+                  <TableCell className='text-white'>
                     <Chip
                       sx={{
-                        color: "white !important",
-                        fontWeight: "bold",
-                        textAlign: "center",
+                        color: 'white !important',
+                        fontWeight: 'bold',
+                        textAlign: 'center',
                       }}
                       label={item.orderStatus}
-                      size="small"
+                      size='small'
                       color={
-                        item.orderStatus === "PENDING" ? "info" :item.orderStatus==="DELIVERED"? "success":"secondary"
+                        item.orderStatus === 'PENDING'
+                          ? 'info'
+                          : item.orderStatus === 'DELIVERED'
+                          ? 'success'
+                          : 'secondary'
                       }
-                      className="text-white"
+                      className='text-white'
                     />
                   </TableCell>
                   <TableCell
-                    sx={{ textAlign: "center" }}
-                    className="text-white"
-                  >
+                    sx={{ textAlign: 'center' }}
+                    className='text-white'>
                     {/* <Button>{item.orderStatus==="PENDING"?"PENDING": item.orderStatus==="PLACED"?"CONFIRMED":item.orderStatus==="CONFIRMED"?"SHIPPED":"DELEVERED"}</Button> */}
                     <div>
                       <Button
                         id={`basic-button-${item.id}`}
                         aria-controls={`basic-menu-${item.id}`}
-                        aria-haspopup="true"
+                        aria-haspopup='true'
                         aria-expanded={Boolean(anchorElArray[index])}
                         onClick={(event) =>
                           handleUpdateStatusMenuClick(event, index)
-                        }
-                      >
+                        }>
                         Status
                       </Button>
                       <Menu
@@ -251,20 +247,23 @@ const OrdersTable = () => {
                         open={Boolean(anchorElArray[index])}
                         onClose={() => handleUpdateStatusMenuClose(index)}
                         MenuListProps={{
-                          "aria-labelledby": `basic-button-${item.id}`,
-                        }}
-                      >
+                          'aria-labelledby': `basic-button-${item.id}`,
+                        }}>
                         <MenuItem
                           onClick={() => handleConfirmedOrder(item.id, index)}
-                          disabled={item.orderStatus==="DELEVERED" || item.orderStatus==="SHIPPED" || item.orderStatus==="CONFIRMED"}
-                        >
+                          disabled={
+                            item.orderStatus === 'DELEVERED' ||
+                            item.orderStatus === 'SHIPPED' ||
+                            item.orderStatus === 'CONFIRMED'
+                          }>
                           CONFIRMED ORDER
-                          
                         </MenuItem>
                         <MenuItem
-                        disabled={item.orderStatus==="DELIVERED" || item.orderStatus==="SHIPPED"}
-                          onClick={() => handleShippedOrder(item.id, index)}
-                        >
+                          disabled={
+                            item.orderStatus === 'DELIVERED' ||
+                            item.orderStatus === 'SHIPPED'
+                          }
+                          onClick={() => handleShippedOrder(item.id, index)}>
                           SHIPPED ORDER
                         </MenuItem>
                         <MenuItem onClick={() => handleDeliveredOrder(item.id)}>
@@ -274,13 +273,11 @@ const OrdersTable = () => {
                     </div>
                   </TableCell>
                   <TableCell
-                    sx={{ textAlign: "center" }}
-                    className="text-white"
-                  >
+                    sx={{ textAlign: 'center' }}
+                    className='text-white'>
                     <Button
                       onClick={() => handleDeleteOrder(item.id)}
-                      variant="text"
-                    >
+                      variant='text'>
                       delete
                     </Button>
                   </TableCell>
@@ -290,12 +287,12 @@ const OrdersTable = () => {
           </Table>
         </TableContainer>
       </Card>
-      <Card className="mt-2 felx justify-center items-center">
+      <Card className='mt-2 felx justify-center items-center'>
         <Pagination
-          className="py-5 w-auto"
-          size="large"
+          className='py-5 w-auto'
+          size='large'
           count={10}
-          color="primary"
+          color='primary'
           onChange={handlePaginationChange}
         />
       </Card>

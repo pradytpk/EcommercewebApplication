@@ -28,7 +28,6 @@ const HomeProductSection = ({ section, data }) => {
   };
   const items = data?.slice(0, 10).map((item) => (
     <div className=''>
-      {' '}
       <HomeProductCard product={item} />
     </div>
   ));
@@ -64,8 +63,7 @@ const HomeProductSection = ({ section, data }) => {
               transform: 'translateX(50%) rotate(90deg)',
             }}
             color='white'
-            aria-label='next'
-          >
+            aria-label='next'>
             <ArrowForwardIosIcon
               className=''
               sx={{ transform: 'rotate(-90deg)' }}
@@ -85,8 +83,7 @@ const HomeProductSection = ({ section, data }) => {
               left: '0rem',
               transform: 'translateX(-50%)  rotate(90deg)',
             }}
-            aria-label='next'
-          >
+            aria-label='next'>
             <ArrowForwardIosIcon
               className=''
               sx={{ transform: ' rotate(90deg)' }}

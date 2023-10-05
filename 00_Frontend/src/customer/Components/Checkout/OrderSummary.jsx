@@ -1,6 +1,6 @@
 import React from 'react';
-import { Badge, Button } from '@mui/material';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Button } from '@mui/material';
+import { useLocation } from 'react-router-dom';
 import CartItem from '../Cart/CartItem';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,7 +9,6 @@ import AddressCard from '../adreess/AdreessCard';
 import { createPayment } from '../../../Redux/Customers/Payment/Action';
 
 const OrderSummary = () => {
-  const navigate = useNavigate();
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const orderId = searchParams.get('order_id');
@@ -21,6 +20,7 @@ const OrderSummary = () => {
 
   useEffect(() => {
     dispatch(getOrderById(orderId));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [orderId]);
 
   const handleCreatePayment = () => {
@@ -74,8 +74,7 @@ const OrderSummary = () => {
               onClick={handleCreatePayment}
               variant='contained'
               type='submit'
-              sx={{ padding: '.8rem 2rem', marginTop: '2rem', width: '100%' }}
-            >
+              sx={{ padding: '.8rem 2rem', marginTop: '2rem', width: '100%' }}>
               Payment
             </Button>
           </div>

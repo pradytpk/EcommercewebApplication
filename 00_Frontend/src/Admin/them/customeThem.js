@@ -1,29 +1,26 @@
-import { createTheme } from "@mui/material/styles";
+import { createTheme } from '@mui/material/styles';
 
 const customTheme = createTheme({
   palette: {
-    mode: "dark", // Set the custom color mode name here
+    mode: 'dark', // Set the custom color mode name here
     primary: {
       main: '#9155FD',
     },
     secondary: {
       main: '#f48fb1',
     },
-    white:{
-      main:"#fff"
+    white: {
+      main: '#fff',
     },
-    orange:{
-      main:"#ffdb0f"
+    orange: {
+      main: '#ffdb0f',
     },
-    
+
     background: {
       default: '',
-      // paper: '#121019',
-      paper:"rgb(0, 0, 22)"
+      paper: 'rgb(0, 0, 22)',
     },
   },
- 
-  
 });
 
 const darkTheme = createTheme({
@@ -40,28 +37,25 @@ const darkTheme = createTheme({
 
 const customerTheme = createTheme({
   palette: {
-    mode: "light", // Set the custom color mode name here
+    mode: 'light', // Set the custom color mode name here
     primary: {
       main: '#9155FD',
     },
     secondary: {
       main: '#f48fb1',
     },
-    white:{
-      main:"#fff"
+    white: {
+      main: '#fff',
     },
-    orange:{
-      main:"#ffdb0f"
+    orange: {
+      main: '#ffdb0f',
     },
-    
+
     background: {
       default: '',
-      // paper: '#121019',
-      paper:"white"
+      paper: 'white',
     },
   },
- 
-  
 });
 
-export {customTheme,darkTheme,customerTheme};
+export { customTheme, darkTheme, customerTheme };

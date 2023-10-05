@@ -27,7 +27,7 @@ export const createOrder = (reqData) => async (dispatch) => {
     const { data } = await axios.post(
       `${API_BASE_URL}/api/orders/`,
       reqData.address,
-      config
+      config,
     );
     if (data.id) {
       reqData.navigate({ search: `step=3&order_id=${data.id}` });

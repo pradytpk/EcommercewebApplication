@@ -9,7 +9,7 @@ import {
   GET_USER_SUCCESS,
   GET_USER_FAILURE,
   LOGOUT,
-} from "./ActionTypes";
+} from './ActionTypes';
 
 const initialState = {
   user: null,
@@ -35,9 +35,9 @@ const authReducer = (state = initialState, action) => {
       return { ...state, isLoading: false, user: action.payload };
     case GET_USER_FAILURE:
       return { ...state, isLoading: false, error: action.payload };
-      case LOGOUT:
-        localStorage.removeItem("jwt");
-        return { ...state, jwt: null, user: null };
+    case LOGOUT:
+      localStorage.removeItem('jwt');
+      return { ...state, jwt: null, user: null };
     default:
       return state;
   }

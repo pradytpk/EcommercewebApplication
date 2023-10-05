@@ -20,7 +20,6 @@ import {
 } from '@mui/material';
 
 import React from 'react';
-import { dressPage1 } from '../../../Data/dress/page1';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -55,7 +54,6 @@ const ProductsTable = () => {
   };
 
   useEffect(() => {
-    // setFilterValue({ availability, category, sort });
     const data = {
       category: category || '',
       colors: [],
@@ -69,7 +67,14 @@ const ProductsTable = () => {
       stock: availability,
     };
     dispatch(findProducts(data));
-  }, [availability, category, sort, page, customersProduct.deleteProduct]);
+  }, [
+    availability,
+    category,
+    sort,
+    page,
+    customersProduct.deleteProduct,
+    dispatch,
+  ]);
 
   const handleFilterChange = (e, sectionId) => {
     console.log(e.target.value, sectionId);
@@ -104,8 +109,7 @@ const ProductsTable = () => {
                 id='demo-simple-select'
                 value={filterValue.category}
                 label='Category'
-                onChange={(e) => handleFilterChange(e, 'category')}
-              >
+                onChange={(e) => handleFilterChange(e, 'category')}>
                 <MenuItem value={'pant'}>Men's Pants</MenuItem>
                 <MenuItem value={'mens_kurta'}>Men's Kurta</MenuItem>
                 <MenuItem value={'saree'}>Saree</MenuItem>
@@ -123,8 +127,7 @@ const ProductsTable = () => {
                 id='demo-simple-select'
                 value={filterValue.availability}
                 label='Availability'
-                onChange={(e) => handleFilterChange(e, 'availability')}
-              >
+                onChange={(e) => handleFilterChange(e, 'availability')}>
                 <MenuItem value={'All'}>All</MenuItem>
                 <MenuItem value={'in_stock'}>Instock</MenuItem>
                 <MenuItem value={'out_of_stock'}>Out Of Stock</MenuItem>
@@ -141,8 +144,7 @@ const ProductsTable = () => {
                 id='demo-simple-select'
                 value={filterValue.sort}
                 label='Sort By Price'
-                onChange={(e) => handleFilterChange(e, 'sort')}
-              >
+                onChange={(e) => handleFilterChange(e, 'sort')}>
                 <MenuItem value={'price_high'}>Heigh - Low</MenuItem>
                 <MenuItem value={'price_low'}>Low - Heigh</MenuItem>
               </Select>
@@ -177,22 +179,21 @@ const ProductsTable = () => {
                 <TableRow
                   hover
                   key={item.id}
-                  sx={{ '&:last-of-type td, &:last-of-type th': { border: 0 } }}
-                >
+                  sx={{
+                    '&:last-of-type td, &:last-of-type th': { border: 0 },
+                  }}>
                   <TableCell>
                     <Avatar alt={item.title} src={item.imageUrl} />{' '}
                   </TableCell>
 
                   <TableCell
-                    sx={{ py: (theme) => `${theme.spacing(0.5)} !important` }}
-                  >
+                    sx={{ py: (theme) => `${theme.spacing(0.5)} !important` }}>
                     <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                       <Typography
                         sx={{
                           fontWeight: 500,
                           fontSize: '0.875rem !important',
-                        }}
-                      >
+                        }}>
                         {item.title}
                       </Typography>
                       <Typography variant='caption'>{item.brand}</Typography>
@@ -212,16 +213,14 @@ const ProductsTable = () => {
                       onClick={() =>
                         navigate(`/admin/product/update/${item.id}`)
                       }
-                      variant='text'
-                    >
+                      variant='text'>
                       Update
                     </Button>
                   </TableCell>
                   <TableCell sx={{ textAlign: 'center' }}>
                     <Button
                       variant='text'
-                      onClick={() => handleDeleteProduct(item.id)}
-                    >
+                      onClick={() => handleDeleteProduct(item.id)}>
                       Delete
                     </Button>
                   </TableCell>
@@ -232,21 +231,13 @@ const ProductsTable = () => {
         </TableContainer>
       </Card>
       <Card className='mt-2 border'>
-        {/* <Pagination
-          className="py-5 border w-auto"
-          size="large"
-          count={10}
-          color="primary"
-          onChange={handlePaginationChange}
-        /> */}
-
         <div className='mx-auto px-4 py-5 flex justify-center shadow-lg rounded-md'>
           <Pagination
             count={customersProduct.products?.totalPages}
             color='primary'
             className=''
             onChange={handlePaginationChange}
-            // value={page}
+            value={page}
           />
         </div>
       </Card>

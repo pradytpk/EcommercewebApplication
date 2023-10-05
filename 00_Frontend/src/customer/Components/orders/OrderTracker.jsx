@@ -20,8 +20,7 @@ export default function OrderTraker({ activeStep }) {
           <Step key={label}>
             <StepLabel
               sx={{ color: '#9155FD', fontSize: '44px' }}
-              className={``}
-            >
+              className={``}>
               {label}
             </StepLabel>
           </Step>

@@ -10,8 +10,8 @@ import {
   DELETE_PRODUCT_REQUEST,
   DELETE_PRODUCT_SUCCESS,
   DELETE_PRODUCT_FAILURE,
-} from "./ActionType";
-import { UPDATE_PRODUCT_REQUEST } from "./ActionType";
+} from './ActionType';
+import { UPDATE_PRODUCT_REQUEST } from './ActionType';
 
 const initialState = {
   products: [],
@@ -68,7 +68,7 @@ const productReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         products: state.products.map((product) =>
-          product._id === action.payload._id ? action.payload : product
+          product._id === action.payload._id ? action.payload : product,
         ),
       };
     case UPDATE_PRODUCT_FAILURE:
@@ -88,7 +88,7 @@ const productReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         products: state.products.filter(
-          (product) => product._id !== action.payload
+          (product) => product._id !== action.payload,
         ),
       };
     case DELETE_PRODUCT_FAILURE:

@@ -27,7 +27,7 @@ export const createPayment = (reqData) => async (dispatch) => {
     const { data } = await axios.post(
       `${API_BASE_URL}/api/payments/${reqData.orderId}`,
       reqData,
-      config
+      config,
     );
     console.log('data', data);
     if (data.payment_link_url) {
@@ -61,7 +61,7 @@ export const updatePayment = (reqData) => {
       };
       const response = await axios.get(
         `${API_BASE_URL}/api/payments?payment_id=${reqData.paymentId}&order_id=${reqData.orderId}`,
-        config
+        config,
       );
       console.log('updated data', response.data);
       dispatch(updatePaymentSuccess(response.data));
