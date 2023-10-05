@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 import {
   CREATE_ORDER_FAILURE,
   CREATE_ORDER_REQUEST,
@@ -9,17 +9,17 @@ import {
   GET_ORDER_HISTORY_FAILURE,
   GET_ORDER_HISTORY_REQUEST,
   GET_ORDER_HISTORY_SUCCESS,
-} from "./ActionType";
-import api, { API_BASE_URL } from "../../../config/api";
+} from './ActionType';
+import api, { API_BASE_URL } from '../../../config/api';
 
 export const createOrder = (reqData) => async (dispatch) => {
-  console.log("req data ", reqData);
+  console.log('req data ', reqData);
   try {
     dispatch({ type: CREATE_ORDER_REQUEST });
 
     const config = {
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${reqData.jwt}`,
       },
     };
@@ -32,13 +32,13 @@ export const createOrder = (reqData) => async (dispatch) => {
     if (data.id) {
       reqData.navigate({ search: `step=3&order_id=${data.id}` });
     }
-    console.log("created order - ", data);
+    console.log('created order - ', data);
     dispatch({
       type: CREATE_ORDER_SUCCESS,
       payload: data,
     });
   } catch (error) {
-    console.log("catch error : ", error);
+    console.log('catch error : ', error);
     dispatch({
       type: CREATE_ORDER_FAILURE,
       payload:
@@ -50,21 +50,18 @@ export const createOrder = (reqData) => async (dispatch) => {
 };
 
 export const getOrderById = (orderId) => async (dispatch) => {
-  console.log("get order req ", orderId);
+  console.log('get order req ', orderId);
   try {
     dispatch({ type: GET_ORDER_BY_ID_REQUEST });
 
-    const { data } = await api.get(
-      `/api/orders/${orderId}`,
-      
-    );
-    console.log("order by id ", data);
+    const { data } = await api.get(`/api/orders/${orderId}`);
+    console.log('order by id ', data);
     dispatch({
       type: GET_ORDER_BY_ID_SUCCESS,
       payload: data,
     });
   } catch (error) {
-    console.log("catch ",error)
+    console.log('catch ', error);
     dispatch({
       type: GET_ORDER_BY_ID_FAILURE,
       payload:
@@ -78,15 +75,8 @@ export const getOrderById = (orderId) => async (dispatch) => {
 export const getOrderHistory = (reqData) => async (dispatch, getState) => {
   try {
     dispatch({ type: GET_ORDER_HISTORY_REQUEST });
-
-    const config = {
-      headers: {
-        Authorization: `Bearer ${reqData.jwt}`,
-      },
-    };
-
     const { data } = await api.get(`/api/orders/user`);
-    console.log("order history -------- ", data);
+    console.log('order history -------- ', data);
     dispatch({
       type: GET_ORDER_HISTORY_SUCCESS,
       payload: data,

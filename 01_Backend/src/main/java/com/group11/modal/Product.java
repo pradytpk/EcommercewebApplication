@@ -20,6 +20,10 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
+/**
+ * @author thang
+ *
+ */
 @Entity
 public class Product {
 
@@ -229,27 +233,12 @@ public class Product {
 	}
 
 	@Override
-	public int hashCode() {
-		return Objects.hash(brand, category, color, description, discountPersent, discountedPrice, id, imageUrl,
-				numRatings, price, quantity, ratings, reviews, sizes, title);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Product other = (Product) obj;
-		return Objects.equals(brand, other.brand) && Objects.equals(category, other.category)
-				&& Objects.equals(color, other.color) && Objects.equals(description, other.description)
-				&& discountPersent == other.discountPersent && discountedPrice == other.discountedPrice
-				&& Objects.equals(id, other.id) && Objects.equals(imageUrl, other.imageUrl)
-				&& numRatings == other.numRatings && price == other.price && quantity == other.quantity
-				&& Objects.equals(ratings, other.ratings) && Objects.equals(reviews, other.reviews)
-				&& Objects.equals(sizes, other.sizes) && Objects.equals(title, other.title);
+	public String toString() {
+		return "Product [id=" + id + ", title=" + title + ", description=" + description + ", price=" + price
+				+ ", discountedPrice=" + discountedPrice + ", discountPersent=" + discountPersent + ", quantity="
+				+ quantity + ", brand=" + brand + ", color=" + color + ", sizes=" + sizes + ", imageUrl=" + imageUrl
+				+ ", ratings=" + ratings + ", reviews=" + reviews + ", numRatings=" + numRatings + ", category="
+				+ category + ", createdAt=" + createdAt + "]";
 	}
 
 }

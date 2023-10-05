@@ -1,15 +1,13 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 
-import AdminPannel from "../Admin/AdminPannel";
-import DemoAdmin from "../Admin/Views/DemoAdmin";
+import AdminPannel from '../Admin/AdminPannel';
 
 const AdminRoutes = () => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<AdminPannel />}></Route>
-        {/* <Route path="/demo" element={<DemoAdmin />}></Route> */}
+        <Route path='/' element={<AdminPannel />}></Route>
       </Routes>
     </div>
   );
