@@ -9,9 +9,9 @@ import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
 
 export default function TimelineHorizontal() {
   return (
-    <Timeline position="">
+    <Timeline position=''>
       <TimelineItem>
-        <TimelineOppositeContent color="text.secondary">
+        <TimelineOppositeContent color='text.secondary'>
           09:30 am
         </TimelineOppositeContent>
         <TimelineSeparator>
@@ -21,7 +21,7 @@ export default function TimelineHorizontal() {
         <TimelineContent>Eat</TimelineContent>
       </TimelineItem>
       <TimelineItem>
-        <TimelineOppositeContent color="text.secondary">
+        <TimelineOppositeContent color='text.secondary'>
           10:00 am
         </TimelineOppositeContent>
         <TimelineSeparator>
@@ -31,7 +31,7 @@ export default function TimelineHorizontal() {
         <TimelineContent>Code</TimelineContent>
       </TimelineItem>
       <TimelineItem>
-        <TimelineOppositeContent color="text.secondary">
+        <TimelineOppositeContent color='text.secondary'>
           12:00 am
         </TimelineOppositeContent>
         <TimelineSeparator>
@@ -41,7 +41,7 @@ export default function TimelineHorizontal() {
         <TimelineContent>Sleep</TimelineContent>
       </TimelineItem>
       <TimelineItem>
-        <TimelineOppositeContent color="text.secondary">
+        <TimelineOppositeContent color='text.secondary'>
           9:00 am
         </TimelineOppositeContent>
         <TimelineSeparator>

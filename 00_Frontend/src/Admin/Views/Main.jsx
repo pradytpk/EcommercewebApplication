@@ -11,7 +11,6 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import AdminPannel from '../../Styles/AdminPannelWrapper';
 import Dashboard from './Admin';
 import { ThemeProvider } from '@emotion/react';
 import { customTheme } from '../them/customeThem';
@@ -22,59 +21,66 @@ const drawerWidth = 240;
 
 export default function ClippedDrawer() {
   return (
-    <ThemeProvider theme={customTheme}> 
-     <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
-      <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
-        <Toolbar>
-          <Typography variant="h6" noWrap component="div">
-            Clipped drawer
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Drawer
-        variant="permanent"
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
-        }}
-      >
-        <Toolbar />
-        <Box sx={{ overflow: 'auto' }}>
-          <List>
-            {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-              <ListItem key={text} disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List>
-          <Divider />
-          <List>
-            {['All mail', 'Trash', 'Spam'].map((text, index) => (
-              <ListItem key={text} disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List>
+    <ThemeProvider theme={customTheme}>
+      <Box sx={{ display: 'flex' }}>
+        <CssBaseline />
+        <AppBar
+          position='fixed'
+          sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        >
+          <Toolbar>
+            <Typography variant='h6' noWrap component='div'>
+              Clipped drawer
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <Drawer
+          variant='permanent'
+          sx={{
+            width: drawerWidth,
+            flexShrink: 0,
+            [`& .MuiDrawer-paper`]: {
+              width: drawerWidth,
+              boxSizing: 'border-box',
+            },
+          }}
+        >
+          <Toolbar />
+          <Box sx={{ overflow: 'auto' }}>
+            <List>
+              {['Inbox', 'Starred', 'Send email', 'Drafts'].map(
+                (text, index) => (
+                  <ListItem key={text} disablePadding>
+                    <ListItemButton>
+                      <ListItemIcon>
+                        {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                      </ListItemIcon>
+                      <ListItemText primary={text} />
+                    </ListItemButton>
+                  </ListItem>
+                )
+              )}
+            </List>
+            <Divider />
+            <List>
+              {['All mail', 'Trash', 'Spam'].map((text, index) => (
+                <ListItem key={text} disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                    </ListItemIcon>
+                    <ListItemText primary={text} />
+                  </ListItemButton>
+                </ListItem>
+              ))}
+            </List>
+          </Box>
+        </Drawer>
+        <Box component='main' sx={{ flexGrow: 1 }}>
+          <Toolbar />
+          <Dashboard />
         </Box>
-      </Drawer>
-      <Box component="main" sx={{ flexGrow: 1 }}>
-        <Toolbar />
-       <Dashboard/>
       </Box>
-    </Box>
     </ThemeProvider>
-   
   );
 }

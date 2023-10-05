@@ -61,6 +61,10 @@ export default function Navigation() {
     if (auth.user) {
       handleClose();
     }
+    if (auth.user && auth.user.role === 'ROLE_ADMIN') {
+      // Navigate to a different screen
+      return navigate('/admin/');
+    }
     if (location.pathname === '/login' || location.pathname === '/register') {
       navigate(-1);
     }
@@ -87,8 +91,7 @@ export default function Navigation() {
             enterTo='opacity-100'
             leave='transition-opacity ease-linear duration-300'
             leaveFrom='opacity-100'
-            leaveTo='opacity-0'
-          >
+            leaveTo='opacity-0'>
             <div className='fixed inset-0 bg-black bg-opacity-25' />
           </Transition.Child>
 
@@ -100,15 +103,13 @@ export default function Navigation() {
               enterTo='translate-x-0'
               leave='transition ease-in-out duration-300 transform'
               leaveFrom='translate-x-0'
-              leaveTo='-translate-x-full'
-            >
+              leaveTo='-translate-x-full'>
               <Dialog.Panel className='relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-xl'>
                 <div className='flex px-4 pb-2 pt-5'>
                   <button
                     type='button'
                     className='-m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400'
-                    onClick={() => setOpen(false)}
-                  >
+                    onClick={() => setOpen(false)}>
                     <span className='sr-only'>Close menu</span>
                     <XMarkIcon className='h-6 w-6' aria-hidden='true' />
                   </button>
@@ -126,10 +127,9 @@ export default function Navigation() {
                               selected
                                 ? 'border-indigo-600 text-indigo-600'
                                 : 'border-transparent text-gray-900',
-                              'flex-1 whitespace-nowrap border-b-2 px-1 py-4 text-base font-medium border-none'
+                              'flex-1 whitespace-nowrap border-b-2 px-1 py-4 text-base font-medium border-none',
                             )
-                          }
-                        >
+                          }>
                           {category.name}
                         </Tab>
                       ))}
@@ -139,14 +139,12 @@ export default function Navigation() {
                     {navigation.categories.map((category) => (
                       <Tab.Panel
                         key={category.name}
-                        className='space-y-10 px-4 pb-8 pt-10'
-                      >
+                        className='space-y-10 px-4 pb-8 pt-10'>
                         <div className='grid grid-cols-2 gap-x-4'>
                           {category.featured.map((item) => (
                             <div
                               key={item.name}
-                              className='group relative text-sm'
-                            >
+                              className='group relative text-sm'>
                               <div className='aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75'>
                                 <img
                                   src={item.imageSrc}
@@ -156,8 +154,7 @@ export default function Navigation() {
                               </div>
                               <a
                                 href={item.href}
-                                className='mt-6 block font-medium text-gray-900'
-                              >
+                                className='mt-6 block font-medium text-gray-900'>
                                 <span
                                   className='absolute inset-0 z-10'
                                   aria-hidden='true'
@@ -174,16 +171,14 @@ export default function Navigation() {
                           <div key={section.name}>
                             <p
                               id={`${category.id}-${section.id}-heading-mobile`}
-                              className='font-medium text-gray-900'
-                            >
+                              className='font-medium text-gray-900'>
                               {section.name}
                             </p>
                             {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
                             <ul
                               role='list'
                               aria-labelledby={`${category.id}-${section.id}-heading-mobile`}
-                              className='mt-6 flex flex-col space-y-6'
-                            >
+                              className='mt-6 flex flex-col space-y-6'>
                               {section.items.map((item) => (
                                 <li key={item.name} className='flow-root'>
                                   <p className='-m-2 block p-2 text-gray-500'>
@@ -204,8 +199,7 @@ export default function Navigation() {
                     <div key={page.name} className='flow-root'>
                       <a
                         href={page.href}
-                        className='-m-2 block p-2 font-medium text-gray-900'
-                      >
+                        className='-m-2 block p-2 font-medium text-gray-900'>
                         {page.name}
                       </a>
                     </div>
@@ -216,8 +210,7 @@ export default function Navigation() {
                   <div className='flow-root'>
                     <a
                       href='/'
-                      className='-m-2 block p-2 font-medium text-gray-900'
-                    >
+                      className='-m-2 block p-2 font-medium text-gray-900'>
                       Sign in
                     </a>
                   </div>
@@ -249,8 +242,7 @@ export default function Navigation() {
               <button
                 type='button'
                 className='rounded-md bg-white p-2 text-gray-400 lg:hidden'
-                onClick={() => setOpen(true)}
-              >
+                onClick={() => setOpen(true)}>
                 <span className='sr-only'>Open menu</span>
                 <Bars3Icon className='h-6 w-6' aria-hidden='true' />
               </button>
@@ -280,9 +272,8 @@ export default function Navigation() {
                                 open
                                   ? 'border-indigo-600 text-indigo-600'
                                   : 'border-transparent text-gray-700 hover:text-gray-800',
-                                'relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out'
-                              )}
-                            >
+                                'relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out',
+                              )}>
                               {category.name}
                             </Popover.Button>
                           </div>
@@ -294,8 +285,7 @@ export default function Navigation() {
                             enterTo='opacity-100'
                             leave='transition ease-in duration-150'
                             leaveFrom='opacity-100'
-                            leaveTo='opacity-0'
-                          >
+                            leaveTo='opacity-0'>
                             <Popover.Panel className='absolute inset-x-0 top-full text-sm text-gray-500'>
                               {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
                               <div
@@ -310,8 +300,7 @@ export default function Navigation() {
                                       {category.featured.map((item) => (
                                         <div
                                           key={item.name}
-                                          className='group relative text-base sm:text-sm'
-                                        >
+                                          className='group relative text-base sm:text-sm'>
                                           <div className='aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75'>
                                             <img
                                               src={item.imageSrc}
@@ -321,8 +310,7 @@ export default function Navigation() {
                                           </div>
                                           <a
                                             href={item.href}
-                                            className='mt-6 block font-medium text-gray-900'
-                                          >
+                                            className='mt-6 block font-medium text-gray-900'>
                                             <span
                                               className='absolute inset-0 z-10'
                                               aria-hidden='true'
@@ -331,8 +319,7 @@ export default function Navigation() {
                                           </a>
                                           <p
                                             aria-hidden='true'
-                                            className='mt-1'
-                                          >
+                                            className='mt-1'>
                                             Shop now
                                           </p>
                                         </div>
@@ -343,32 +330,28 @@ export default function Navigation() {
                                         <div key={section.name}>
                                           <p
                                             id={`${section.name}-heading`}
-                                            className='font-medium text-gray-900'
-                                          >
+                                            className='font-medium text-gray-900'>
                                             {section.name}
                                           </p>
                                           {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
                                           <ul
                                             role='list'
                                             aria-labelledby={`${section.name}-heading`}
-                                            className='mt-6 space-y-6 sm:mt-4 sm:space-y-4'
-                                          >
+                                            className='mt-6 space-y-6 sm:mt-4 sm:space-y-4'>
                                             {section.items.map((item) => (
                                               <li
                                                 key={item.name}
-                                                className='flex'
-                                              >
+                                                className='flex'>
                                                 <p
                                                   onClick={() =>
                                                     handleCategoryClick(
                                                       category,
                                                       section,
                                                       item,
-                                                      close
+                                                      close,
                                                     )
                                                   }
-                                                  className='cursor-pointer hover:text-gray-800'
-                                                >
+                                                  className='cursor-pointer hover:text-gray-800'>
                                                   {item.name}
                                                 </p>
                                               </li>
@@ -391,8 +374,7 @@ export default function Navigation() {
                     <a
                       key={page.name}
                       href={page.href}
-                      className='flex items-center text-sm font-medium text-gray-700 hover:text-gray-800'
-                    >
+                      className='flex items-center text-sm font-medium text-gray-700 hover:text-gray-800'>
                       {page.name}
                     </a>
                   ))}
@@ -409,24 +391,13 @@ export default function Navigation() {
                         aria-controls={open ? 'basic-menu' : undefined}
                         aria-haspopup='true'
                         aria-expanded={open ? 'true' : undefined}
-                        // onClick={handleUserClick}
                         sx={{
                           bgcolor: deepPurple[500],
                           color: 'white',
                           cursor: 'pointer',
-                        }}
-                      >
+                        }}>
                         {auth.user?.firstName[0].toUpperCase()}
                       </Avatar>
-                      {/* <Button
-                        id="basic-button"
-                        aria-controls={open ? "basic-menu" : undefined}
-                        aria-haspopup="true"
-                        aria-expanded={open ? "true" : undefined}
-                        onClick={handleUserClick}
-                      >
-                        Dashboard
-                      </Button> */}
                       <Menu
                         id='basic-menu'
                         anchorEl={anchorEl}
@@ -434,8 +405,7 @@ export default function Navigation() {
                         onClose={handleCloseUserMenu}
                         MenuListProps={{
                           'aria-labelledby': 'basic-button',
-                        }}
-                      >
+                        }}>
                         <MenuItem onClick={handleCloseUserMenu}>
                           Profile
                         </MenuItem>
@@ -449,8 +419,7 @@ export default function Navigation() {
                   ) : (
                     <Button
                       onClick={handleOpen}
-                      className='text-sm font-medium text-gray-700 hover:text-gray-800'
-                    >
+                      className='text-sm font-medium text-gray-700 hover:text-gray-800'>
                       Signin
                     </Button>
                   )}
@@ -471,8 +440,7 @@ export default function Navigation() {
                 <div className='ml-4 flow-root lg:ml-6'>
                   <Button
                     onClick={() => navigate('/cart')}
-                    className='group -m-2 flex items-center p-2'
-                  >
+                    className='group -m-2 flex items-center p-2'>
                     <ShoppingBagIcon
                       className='h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500'
                       aria-hidden='true'

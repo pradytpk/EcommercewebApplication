@@ -132,7 +132,5 @@ public class PaymentController {
 			new RedirectView("http://localhost:3000/payment/failed");
 			throw new RazorpayException(e.getMessage());
 		}
-
 	}
-
 }

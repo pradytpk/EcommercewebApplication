@@ -4,7 +4,6 @@ import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -16,11 +15,8 @@ import MailIcon from '@mui/icons-material/Mail';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import { customTheme } from './them/customeThem';
 import AdminNavbar from './Navigation/AdminNavbar';
-import Dashboard from './Views/Admin';
 import { Route, Routes, useNavigate } from 'react-router-dom';
-import DemoAdmin from './Views/DemoAdmin';
 import CreateProductForm from './componets/createProduct/CreateProductFrom';
-import CreateProduct from '../customer/Components/Create/CreateProduct';
 import './AdminPannel.css';
 import ProductsTable from './componets/Products/ProductsTable';
 import OrdersTable from './componets/Orders/OrdersTable';
@@ -49,35 +45,19 @@ export default function AdminPannel() {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
-      }}
-    >
+      }}>
       {isLargeScreen && <Toolbar />}
       <List>
         {menu.map((item, index) => (
           <ListItem
             key={item.name}
             disablePadding
-            onClick={() => navigate(item.path)}
-          >
+            onClick={() => navigate(item.path)}>
             <ListItemButton>
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
               </ListItemIcon>
               <ListItemText primary={item.name} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-
-      <List sx={{ position: 'absolute', bottom: 0, width: '100%' }}>
-        <Divider />
-        {['Account', 'Request'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -123,26 +103,21 @@ export default function AdminPannel() {
             },
           }}
           open={isLargeScreen || sideBarVisible}
-          onClose={handleCloseSideBar}
-        >
+          onClose={handleCloseSideBar}>
           {drawer}
         </Drawer>
         <Box className='adminContainer' component='main' sx={{ flexGrow: 1 }}>
           <Toolbar />
           <Routes>
-            <Route path='/' element={<Dashboard />}></Route>
             <Route
               path='/product/create'
-              element={<CreateProductForm />}
-            ></Route>
+              element={<CreateProductForm />}></Route>
             <Route
               path='/product/update/:productId'
-              element={<UpdateProductForm />}
-            ></Route>
+              element={<UpdateProductForm />}></Route>
             <Route path='/products' element={<ProductsTable />}></Route>
             <Route path='/orders' element={<OrdersTable />}></Route>
             <Route path='/customers' element={<Customers />}></Route>
-            <Route path='/demo' element={<DemoAdmin />}></Route>
           </Routes>
         </Box>
       </Box>

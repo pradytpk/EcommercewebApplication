@@ -1,8 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState } from 'react';
 import { Typography } from '@mui/material';
 import { Grid, TextField, Button } from '@mui/material';
-
 import { Fragment } from 'react';
+import { useNavigate } from 'react-router-dom';
 // import "./CreateProductForm.css";
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -13,9 +14,9 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 const initialSizes = [
-  { name: "S", quantity: 0 },
-  { name: "M", quantity: 0 },
-  { name: "L", quantity: 0 },
+  { name: 'S', quantity: 0 },
+  { name: 'M', quantity: 0 },
+  { name: 'L', quantity: 0 },
 ];
 
 const UpdateProductForm = () => {
@@ -37,7 +38,6 @@ const UpdateProductForm = () => {
   });
   console.log(productData);
   const dispatch = useDispatch();
-  const jwt = localStorage.getItem('jwt');
   const { productId } = useParams();
   const { customersProduct } = useSelector((store) => store);
 
@@ -48,22 +48,11 @@ const UpdateProductForm = () => {
       [name]: value,
     }));
   };
-
-  const handleSizeChange = (e, index) => {
-    let { name, value } = e.target;
-    name === 'size_quantity' ? (name = 'quantity') : (name = e.target.name);
-
-    const sizes = [...productData.size];
-    sizes[index][name] = value;
-    setProductData((prevState) => ({
-      ...prevState,
-      size: sizes,
-    }));
-  };
-
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(updateProduct(productData, productData.id));
+    return navigate('/admin/products');
   };
 
   useEffect(() => {
