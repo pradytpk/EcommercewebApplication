@@ -1,4 +1,4 @@
-package com.group11.user.domain;
+package com.group11.common;
 
 public enum PaymentStatus {
 
