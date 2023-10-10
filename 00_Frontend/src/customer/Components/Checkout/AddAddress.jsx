@@ -3,7 +3,7 @@ import { Grid, TextField, Button, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { createOrder } from '../../../Redux/Customers/Order/Action';
-import AddressCard from '../adreess/AdreessCard';
+import AddressCardView from '../Address/AddressCardView';
 import { useState } from 'react';
 
 export default function AddDeliveryAddressForm({ handleNext }) {
@@ -45,7 +45,7 @@ export default function AddDeliveryAddressForm({ handleNext }) {
               onClick={() => setSelectedAdress(item)}
               className='p-5 py-7 border-b cursor-pointer'>
               {' '}
-              <AddressCard address={item} />
+              <AddressCardView address={item} />
               {selectedAddress?.id === item.id && (
                 <Button
                   sx={{ mt: 2 }}

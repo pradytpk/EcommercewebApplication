@@ -13,7 +13,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Dashboard from './Admin';
 import { ThemeProvider } from '@emotion/react';
-import { customTheme } from '../them/customeThem';
+import { customTheme } from '../Theme/CustomerTheme';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 
@@ -26,8 +26,7 @@ export default function ClippedDrawer() {
         <CssBaseline />
         <AppBar
           position='fixed'
-          sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
-        >
+          sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
           <Toolbar>
             <Typography variant='h6' noWrap component='div'>
               Clipped drawer
@@ -43,8 +42,7 @@ export default function ClippedDrawer() {
               width: drawerWidth,
               boxSizing: 'border-box',
             },
-          }}
-        >
+          }}>
           <Toolbar />
           <Box sx={{ overflow: 'auto' }}>
             <List>
@@ -58,7 +56,7 @@ export default function ClippedDrawer() {
                       <ListItemText primary={text} />
                     </ListItemButton>
                   </ListItem>
-                )
+                ),
               )}
             </List>
             <Divider />

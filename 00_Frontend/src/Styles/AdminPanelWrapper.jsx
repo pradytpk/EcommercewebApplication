@@ -1,7 +1,7 @@
 // ** MUI imports
 import { styled } from '@mui/material/styles';
 
-const AdminPannelWrapper = styled('div')(({ theme }) => ({
+const AdminPanelWrapper = styled('div')(({ theme }) => ({
   '& .apexcharts-canvas': {
     "& line[stroke='transparent']": {
       display: 'none',
@@ -118,4 +118,4 @@ const AdminPannelWrapper = styled('div')(({ theme }) => ({
   },
 }));
 
-export default AdminPannelWrapper;
+export default AdminPanelWrapper;

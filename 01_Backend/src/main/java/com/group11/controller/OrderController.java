@@ -56,6 +56,7 @@ public class OrderController {
 	public ResponseEntity<Order> findOrderHandler(@PathVariable Long orderId,
 			@RequestHeader("Authorization") String jwt) throws OrderException, UserException {
 
+		@SuppressWarnings("unused")
 		User user = userService.findUserProfileByJwt(jwt);
 		Order orders = orderService.findOrderById(orderId);
 		return new ResponseEntity<>(orders, HttpStatus.ACCEPTED);

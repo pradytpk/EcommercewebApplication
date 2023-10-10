@@ -3,12 +3,12 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Homepage from '../Pages/Homepage';
 import About from '../Pages/About';
-import Product from '../customer/Components/Product/Product/Product';
-import ProductDetails from '../customer/Components/Product/ProductDetails/ProductDetails';
-import Cart from '../customer/Components/Product/Cart/Cart';
+import Product from '../Customer/Components/Product/Product/Product';
+import ProductDetails from '../Customer/Components/Product/ProductDetails/ProductDetails';
+import Cart from '../Customer/Components/Product/Cart/Cart';
 
-import AdminPannel from '../Admin/AdminPannel';
-import Navigation from '../customer/Components/Navbar/Navigation';
+import AdminPanel from '../Admin/AdminPanel';
+import Navigation from '../Customer/Components/Navbar/Navigation';
 
 const Routers = () => {
   console.log('inside router');
@@ -29,7 +29,7 @@ const Routers = () => {
             element={<ProductDetails />}></Route>
           <Route path='/cart' element={<Cart />}></Route>
 
-          <Route path='/admin' element={<AdminPannel />}></Route>
+          <Route path='/admin' element={<AdminPanel />}></Route>
         </Routes>
       </div>
     </div>

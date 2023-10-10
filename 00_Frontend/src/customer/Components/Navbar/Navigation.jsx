@@ -10,7 +10,7 @@ import {
 
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Avatar, Button, Menu, MenuItem } from '@mui/material';
-import { navigation } from '../../../config/navigationMenu';
+import { navigation } from '../../../Config/NavigationMenuView';
 import AuthModal from '../Auth/AuthModal';
 import { useDispatch, useSelector } from 'react-redux';
 import { deepPurple } from '@mui/material/colors';
@@ -80,6 +80,10 @@ export default function Navigation() {
     navigate('/account/order');
   };
 
+  const handleMyOrderProfile = () => {
+    handleCloseUserMenu();
+    navigate('/profile');
+  };
   return (
     <div className='bg-white pb-10'>
       {/* Mobile menu */}
@@ -407,7 +411,7 @@ export default function Navigation() {
                         MenuListProps={{
                           'aria-labelledby': 'basic-button',
                         }}>
-                        <MenuItem onClick={handleCloseUserMenu}>
+                        <MenuItem onClick={handleMyOrderProfile}>
                           Profile
                         </MenuItem>
 

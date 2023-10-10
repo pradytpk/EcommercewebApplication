@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updatePayment } from '../../../Redux/Customers/Payment/Action';
 import { Alert, AlertTitle, Grid } from '@mui/material';
 import { getOrderById } from '../../../Redux/Customers/Order/Action';
-import OrderTraker from '../orders/OrderTracker';
-import AddressCard from '../adreess/AdreessCard';
+import OrderTraker from '../Orders/OrderTracker';
+import AddressCardView from '../Address/AddressCardView';
 import { useParams } from 'react-router-dom';
 
 const PaymentSuccess = () => {
@@ -74,7 +74,7 @@ const PaymentSuccess = () => {
               </div>
             </Grid>
             <Grid item>
-              <AddressCard address={order.order?.shippingAddress} />
+              <AddressCardView address={order.order?.shippingAddress} />
             </Grid>
           </Grid>
         ))}

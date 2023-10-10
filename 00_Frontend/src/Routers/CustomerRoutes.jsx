@@ -1,18 +1,19 @@
 import React from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
-import ProductDetails from '../customer/Components/Product/ProductDetails/ProductDetails';
-import Product from '../customer/Components/Product/Product/Product';
-import Navigation from '../customer/Components/Navbar/Navigation';
-import Cart from '../customer/Components/Cart/Cart';
+import ProductDetails from '../Customer/Components/Product/ProductDetails/ProductDetails';
+import Product from '../Customer/Components/Product/Product/Product';
+import Navigation from '../Customer/Components/Navbar/Navigation';
+import Cart from '../Customer/Components/Cart/Cart';
 import { ThemeProvider } from '@mui/material/styles';
-import { customerTheme } from '../Admin/them/customeThem';
-import Order from '../customer/Components/orders/Order';
-import OrderDetails from '../customer/Components/orders/OrderDetails';
-import Checkout from '../customer/Components/Checkout/Checkout';
-import Footer from '../customer/Components/footer/Footer';
-import PaymentSuccess from '../customer/Components/paymentSuccess/PaymentSuccess';
-import RateProduct from '../customer/Components/ReviewProduct/RateProduct';
+import { customerTheme } from '../Admin/Theme/CustomerTheme';
+import Order from '../Customer/Components/Orders/Order';
+import OrderDetails from '../Customer/Components/Orders/OrderDetails';
+import Checkout from '../Customer/Components/Checkout/Checkout';
+import Footer from '../Customer/Components/Footer/Footer';
+import PaymentSuccess from '../Customer/Components/PaymentSuccess/PaymentSuccess';
+import RateProduct from '../Customer/Components/ReviewProduct/RateProduct';
 import Homepage from '../Pages/Homepage';
+import Profile from '../Customer/Components/Profile/Profile';
 const CustomerRoutes = () => {
   const location = useLocation();
   console.log('routes');
@@ -38,6 +39,7 @@ const CustomerRoutes = () => {
           <Route
             path='/account/order/:orderId'
             element={<OrderDetails />}></Route>
+          <Route path='/profile/' element={<Profile />}></Route>
           <Route
             path='/account/rate/:productId'
             element={<RateProduct />}></Route>

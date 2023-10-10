@@ -32,6 +32,7 @@ import com.razorpay.RazorpayException;
 public class PaymentController {
 
 	private OrderService orderService;
+	@SuppressWarnings("unused")
 	private UserService userService;
 	private OrderRepository orderRepository;
 

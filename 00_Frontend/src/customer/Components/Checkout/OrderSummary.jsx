@@ -5,7 +5,7 @@ import CartItem from '../Cart/CartItem';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getOrderById } from '../../../Redux/Customers/Order/Action';
-import AddressCard from '../adreess/AdreessCard';
+import AddressCardView from '../Address/AddressCardView';
 import { createPayment } from '../../../Redux/Customers/Payment/Action';
 
 const OrderSummary = () => {
@@ -31,7 +31,7 @@ const OrderSummary = () => {
   return (
     <div className='space-y-5'>
       <div className='p-5 shadow-lg rounded-md border '>
-        <AddressCard address={order.order?.shippingAddress} />
+        <AddressCardView address={order.order?.shippingAddress} />
       </div>
       <div className='lg:grid grid-cols-3 relative justify-between'>
         <div className='lg:col-span-2 '>

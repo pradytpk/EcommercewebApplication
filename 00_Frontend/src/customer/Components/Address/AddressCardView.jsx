@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AddressCard = ({ address }) => {
+const AddressCardView = ({ address }) => {
   return (
     <div>
       <div className='space-y-3'>
@@ -17,4 +17,4 @@ const AddressCard = ({ address }) => {
   );
 };
 
-export default AddressCard;
+export default AddressCardView;

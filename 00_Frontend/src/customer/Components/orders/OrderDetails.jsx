@@ -3,7 +3,7 @@ import React from 'react';
 import OrderTraker from './OrderTracker';
 import StarIcon from '@mui/icons-material/Star';
 import { useNavigate, useParams } from 'react-router-dom';
-import AddressCard from '../adreess/AdreessCard';
+import AddressCardView from '../Address/AddressCardView';
 import { deepPurple } from '@mui/material/colors';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
@@ -30,7 +30,7 @@ const OrderDetails = () => {
           <p className='font-bold text-lg py-2'>Delivery Address</p>
         </Grid>
         <Grid item xs={6}>
-          <AddressCard address={order.order?.shippingAddress} />
+          <AddressCardView address={order.order?.shippingAddress} />
         </Grid>
       </Grid>
       <Box className='p-5 shadow-lg border rounded-md'>

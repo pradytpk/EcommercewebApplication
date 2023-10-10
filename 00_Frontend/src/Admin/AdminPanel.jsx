@@ -13,15 +13,15 @@ import { useTheme } from '@mui/material/styles';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import { customTheme } from './them/customeThem';
+import { customTheme } from './Theme/CustomerTheme';
 import AdminNavbar from './Navigation/AdminNavbar';
 import { Route, Routes, useNavigate } from 'react-router-dom';
-import CreateProductForm from './componets/createProduct/CreateProductFrom';
-import './AdminPannel.css';
-import ProductsTable from './componets/Products/ProductsTable';
-import OrdersTable from './componets/Orders/OrdersTable';
-import Customers from './componets/customers/customers';
-import UpdateProductForm from './componets/updateProduct/UpdateProduct';
+import CreateProductForm from './Components/CreateProduct/CreateProductFrom';
+import './AdminPanel.css';
+import ProductsTable from './Components/Products/ProductsTable';
+import OrdersTable from './Components/Orders/OrdersTable';
+import Customers from './Components/Customers/Customers';
+import UpdateProductForm from './Components/UpdateProduct/UpdateProductForm';
 
 const drawerWidth = 240;
 
@@ -32,7 +32,7 @@ const menu = [
   { name: 'Add Product', path: '/admin/product/create' },
 ];
 
-export default function AdminPannel() {
+export default function AdminPanel() {
   const theme = useTheme();
   const isLargeScreen = useMediaQuery(theme.breakpoints.up('lg'));
   const [sideBarVisible, setSideBarVisible] = React.useState(false);

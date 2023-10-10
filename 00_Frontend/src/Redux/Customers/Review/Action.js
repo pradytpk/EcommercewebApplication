@@ -8,7 +8,7 @@ import {
   GET_ALL_RATINGS_SUCCESS,
   GET_ALL_RATINGS_FAILURE,
 } from './ActionType';
-import api from '../../../config/api';
+import api from '../../../Config/Api';
 
 export const createReview = (resData) => {
   console.log('create review req ', resData);
