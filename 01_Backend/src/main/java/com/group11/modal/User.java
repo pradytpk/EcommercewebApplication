@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.group11.user.domain.UserRole;
+import com.group11.common.UserRole;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.CollectionTable;

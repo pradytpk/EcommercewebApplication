@@ -7,6 +7,8 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.group11.common.OrderStatus;
+import com.group11.common.PaymentStatus;
 import com.group11.exception.OrderException;
 import com.group11.modal.Address;
 import com.group11.modal.Cart;
@@ -18,8 +20,6 @@ import com.group11.repository.AddressRepository;
 import com.group11.repository.OrderItemRepository;
 import com.group11.repository.OrderRepository;
 import com.group11.repository.UserRepository;
-import com.group11.user.domain.OrderStatus;
-import com.group11.user.domain.PaymentStatus;
 
 @Service
 public class OrderServiceImplementation implements OrderService {

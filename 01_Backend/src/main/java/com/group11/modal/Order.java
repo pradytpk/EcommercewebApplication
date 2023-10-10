@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.group11.user.domain.OrderStatus;
+import com.group11.common.OrderStatus;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;

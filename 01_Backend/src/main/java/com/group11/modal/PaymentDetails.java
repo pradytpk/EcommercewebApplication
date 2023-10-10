@@ -1,7 +1,7 @@
 package com.group11.modal;
 
-import com.group11.user.domain.PaymentMethod;
-import com.group11.user.domain.PaymentStatus;
+import com.group11.common.PaymentMethod;
+import com.group11.common.PaymentStatus;
 
 public class PaymentDetails {
 

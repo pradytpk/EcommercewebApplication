@@ -74,14 +74,12 @@ const CreateProductForm = () => {
       <Typography
         variant='h3'
         sx={{ textAlign: 'center' }}
-        className='py-10 text-center '
-      >
+        className='py-10 text-center '>
         Add New Product
       </Typography>
       <form
         onSubmit={handleSubmit}
-        className='createProductContainer min-h-screen'
-      >
+        className='createProductContainer min-h-screen'>
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <TextField
@@ -168,11 +166,9 @@ const CreateProductForm = () => {
                 name='topLavelCategory'
                 value={productData.topLavelCategory}
                 onChange={handleChange}
-                label='Top Level Category'
-              >
+                label='Top Level Category'>
                 <MenuItem value='men'>Men</MenuItem>
                 <MenuItem value='women'>Women</MenuItem>
-                <MenuItem value='kids'>Kids</MenuItem>
               </Select>
             </FormControl>
           </Grid>
@@ -183,11 +179,9 @@ const CreateProductForm = () => {
                 name='secondLavelCategory'
                 value={productData.secondLavelCategory}
                 onChange={handleChange}
-                label='Second Level Category'
-              >
+                label='Second Level Category'>
                 <MenuItem value='clothing'>Clothing</MenuItem>
                 <MenuItem value='accessories'>Accessories</MenuItem>
-                <MenuItem value='brands'>Brands</MenuItem>
               </Select>
             </FormControl>
           </Grid>
@@ -198,13 +192,10 @@ const CreateProductForm = () => {
                 name='thirdLavelCategory'
                 value={productData.thirdLavelCategory}
                 onChange={handleChange}
-                label='Third Level Category'
-              >
+                label='Third Level Category'>
                 <MenuItem value='top'>Tops</MenuItem>
-                <MenuItem value='women_dress'>Dresses</MenuItem>
-                <MenuItem value='t-shirts'>T-Shirts</MenuItem>
-                <MenuItem value='saree'>Saree</MenuItem>
-                <MenuItem value='lengha_choli'>Lengha Choli</MenuItem>
+                <MenuItem value='watches'>Watches</MenuItem>
+                <MenuItem value='mens_kurta'>Mens Kurtas</MenuItem>
               </Select>
             </FormControl>
           </Grid>
@@ -250,8 +241,7 @@ const CreateProductForm = () => {
               sx={{ p: 1.8 }}
               className='py-20'
               size='large'
-              type='submit'
-            >
+              type='submit'>
               Add New Product
             </Button>
             {/* <Button

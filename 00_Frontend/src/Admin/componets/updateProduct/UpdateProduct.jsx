@@ -164,54 +164,6 @@ const UpdateProductForm = () => {
               type='number'
             />
           </Grid>
-          {/* <Grid item xs={6} sm={4}>
-            <FormControl fullWidth>
-              <InputLabel>Top Level Category</InputLabel>
-              <Select
-                name='topLavelCategory'
-                value={productData.topLavelCategory}
-                onChange={handleChange}
-                label='Top Level Category'
-              >
-                <MenuItem value='Men'>Men</MenuItem>
-                <MenuItem value='Women'>Women</MenuItem>
-                <MenuItem value='Kids'>Kids</MenuItem>
-              </Select>
-            </FormControl>
-          </Grid>
-          <Grid item xs={6} sm={4}>
-            <FormControl fullWidth>
-              <InputLabel>Second Level Category</InputLabel>
-              <Select
-                name='secondLavelCategory'
-                value={productData.secondLavelCategory}
-                onChange={handleChange}
-                label='Second Level Category'
-              >
-                <MenuItem value='Clothing'>Clothing</MenuItem>
-                <MenuItem value='Accessories'>Accessories</MenuItem>
-                <MenuItem value='Brands'>Brands</MenuItem>
-              </Select>
-            </FormControl>
-          </Grid>
-          <Grid item xs={6} sm={4}>
-            <FormControl fullWidth>
-              <InputLabel>Third Level Category</InputLabel>
-              <Select
-                name='thirdLavelCategory'
-                value={productData.thirdLavelCategory}
-                onChange={handleChange}
-                label='Third Level Category'
-              >
-                <MenuItem value='Tops'>Tops</MenuItem>
-                <MenuItem value='Dresses'>Dresses</MenuItem>
-                <MenuItem value='T-Shirts'>T-Shirts</MenuItem>
-                <MenuItem value='Saree'>Saree</MenuItem>
-                <MenuItem value='Saree'>Saree</MenuItem>
-                <MenuItem value='Lengha Choli'>Lengha Choli</MenuItem>
-              </Select>
-            </FormControl>
-          </Grid> */}
           <Grid item xs={12}>
             <TextField
               fullWidth

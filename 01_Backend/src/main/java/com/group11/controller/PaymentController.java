@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.view.RedirectView;
 
+import com.group11.common.OrderStatus;
+import com.group11.common.PaymentStatus;
 import com.group11.exception.OrderException;
 import com.group11.exception.UserException;
 import com.group11.modal.Order;
@@ -20,8 +22,6 @@ import com.group11.response.ApiResponse;
 import com.group11.response.PaymentLinkResponse;
 import com.group11.service.OrderService;
 import com.group11.service.UserService;
-import com.group11.user.domain.OrderStatus;
-import com.group11.user.domain.PaymentStatus;
 import com.razorpay.Payment;
 import com.razorpay.PaymentLink;
 import com.razorpay.RazorpayClient;
