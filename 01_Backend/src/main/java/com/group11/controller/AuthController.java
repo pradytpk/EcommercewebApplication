@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.group11.common.UserRole;
 import com.group11.config.JwtTokenProvider;
 import com.group11.exception.UserException;
 import com.group11.modal.User;
@@ -55,8 +56,6 @@ public class AuthController {
 
 		// Check if user with the given email already exists
 		if (isEmailExist != null) {
-			// System.out.println("--------- exist "+isEmailExist).getEmail());
-
 			throw new UserException("Email Is Already Used With Another Account");
 		}
 
@@ -66,7 +65,7 @@ public class AuthController {
 		createdUser.setFirstName(firstName);
 		createdUser.setLastName(lastName);
 		createdUser.setPassword(passwordEncoder.encode(password));
-
+		createdUser.setRole(UserRole.ROLE_USER);
 		User savedUser = userRepository.save(createdUser);
 
 		cartService.createCart(savedUser);

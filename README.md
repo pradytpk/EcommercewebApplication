@@ -8,6 +8,8 @@
   - [High Level Diagram](#high-level-diagram)
   - [Spring Data Flow](#spring-data-flow)
   - [DB Architecture](#db-architecture)
+    - [High Level Diagram](#high-level-diagram-1)
+    - [Low Level Diagram](#low-level-diagram)
   - [MySQL Installation](#mysql-installation)
     - [Create Database](#create-database)
   - [To Run Frontend code](#to-run-frontend-code)
@@ -44,6 +46,12 @@
 ![data_flow_backend](./99_Others/01_spring.png)
 
 ## DB Architecture
+
+### High Level Diagram
+
+![high_level](./99_Others/High%20Level%20DB%20Flow.jpg)
+
+### Low Level Diagram
 
 [DB Architecture](./02_DB/ER_Diagram-1.0.pdf)
 
