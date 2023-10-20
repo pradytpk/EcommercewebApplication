@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updatePayment } from '../../../Redux/Customers/Payment/Action';
 import { Alert, AlertTitle, Grid } from '@mui/material';
 import { getOrderById } from '../../../Redux/Customers/Order/Action';
-import OrderTraker from '../Orders/OrderTracker';
+import OrderTraker from '../orders/OrderTracker';
 import AddressCardView from '../Address/AddressCardView';
 import { useParams } from 'react-router-dom';
 
