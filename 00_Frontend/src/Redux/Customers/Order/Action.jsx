@@ -10,7 +10,7 @@ import {
   GET_ORDER_HISTORY_REQUEST,
   GET_ORDER_HISTORY_SUCCESS,
 } from './ActionType';
-import api, { API_BASE_URL } from '../../../config/Api';
+import api, { API_BASE_URL } from '../../../Config/Api';
 
 export const createOrder = (reqData) => async (dispatch) => {
   console.log('req data ', reqData);
@@ -25,7 +25,7 @@ export const createOrder = (reqData) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `${API_BASE_URL}/api/orders/`,
+      `${API_BASE_URL}/api/Orders/`,
       reqData.address,
       config,
     );
@@ -54,7 +54,7 @@ export const getOrderById = (orderId) => async (dispatch) => {
   try {
     dispatch({ type: GET_ORDER_BY_ID_REQUEST });
 
-    const { data } = await api.get(`/api/orders/${orderId}`);
+    const { data } = await api.get(`/api/Orders/${orderId}`);
     console.log('order by id ', data);
     dispatch({
       type: GET_ORDER_BY_ID_SUCCESS,
@@ -75,7 +75,7 @@ export const getOrderById = (orderId) => async (dispatch) => {
 export const getOrderHistory = (reqData) => async (dispatch, getState) => {
   try {
     dispatch({ type: GET_ORDER_HISTORY_REQUEST });
-    const { data } = await api.get(`/api/orders/user`);
+    const { data } = await api.get(`/api/Orders/user`);
     console.log('order history -------- ', data);
     dispatch({
       type: GET_ORDER_HISTORY_SUCCESS,
