@@ -10,6 +10,23 @@
   - [DB Architecture](#db-architecture)
     - [High Level Diagram](#high-level-diagram-1)
     - [Low Level Diagram](#low-level-diagram)
+  - [User Screens](#user-screens)
+    - [Home Page](#home-page)
+    - [Register](#register)
+    - [Login](#login)
+    - [Navigation](#navigation)
+    - [Profile](#profile)
+    - [Products](#products)
+    - [Order](#order)
+    - [Cart](#cart)
+    - [Checkout](#checkout)
+    - [Order Summary](#order-summary)
+    - [Payment](#payment)
+  - [Admin Screens](#admin-screens)
+    - [Products List](#products-list)
+    - [Customers List](#customers-list)
+    - [Orders List](#orders-list)
+    - [Add Product](#add-product)
   - [MySQL Installation](#mysql-installation)
     - [Create Database](#create-database)
   - [To Run Frontend code](#to-run-frontend-code)
@@ -56,6 +73,70 @@
 [DB Architecture](./02_DB/ER_Diagram-1.0.pdf)
 
 ![DB](./02_DB/DB.png)
+
+## User Screens
+
+### Home Page
+
+![Alt text](99_Others/user/image.png)
+
+### Register
+
+![Alt text](99_Others/user/image-1.png)
+
+### Login
+
+![Alt text](99_Others/user/image-2.png)
+
+### Navigation
+
+![Alt text](99_Others/user/image-3.png)
+
+### Profile
+
+![Alt text](99_Others/user/image-4.png)
+
+### Products
+
+![Alt text](99_Others/user/image-10.png)
+
+### Order
+
+![Alt text](99_Others/user/image-5.png)
+
+### Cart
+
+![Alt text](99_Others/user/image-6.png)
+
+### Checkout
+
+![Alt text](99_Others/user/image-7.png)
+
+### Order Summary
+
+![Alt text](99_Others/user/image-8.png)
+
+### Payment
+
+![Alt text](99_Others/user/image-9.png)
+
+## Admin Screens
+
+### Products List
+
+![Products_list](99_Others/admin/image.png)
+
+### Customers List
+
+![Alt text](99_Others/admin/image1.png)
+
+### Orders List
+
+![Alt text](99_Others/admin/image3.png)
+
+### Add Product
+
+![Alt text](99_Others/admin/image4.png)
 
 ## MySQL Installation
 
