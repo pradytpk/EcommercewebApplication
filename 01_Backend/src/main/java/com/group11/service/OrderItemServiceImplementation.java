@@ -9,10 +9,14 @@ import com.group11.repository.OrderItemRepository;
 public class OrderItemServiceImplementation implements OrderItemService {
 
 	private OrderItemRepository orderItemRepository;
-
+	
 	public OrderItemServiceImplementation(OrderItemRepository orderItemRepository) {
 		this.orderItemRepository = orderItemRepository;
 	}
+
+	// public OrderItemServiceImplementation() {
+	// 	super();
+	// }
 
 	@Override
 	public OrderItem createOrderItem(OrderItem orderItem) {
