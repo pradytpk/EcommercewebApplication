@@ -1,0 +1,10 @@
+version: 2
+updates:
+  - package-ecosystem: "npm" # or "bundler", "docker", "maven", etc.
+    directory: "/" # Location of the package manifest
+    schedule:
+      interval: "daily" # or "daily", "monthly"
+    commit-message:
+      prefix: "deps"
+      prefix-development: "chore"
+    open-pull-requests-limit: 5
