@@ -9,9 +9,9 @@ updates:
       prefix-development: "chore"
     open-pull-requests-limit: 5
   - package-ecosystem: "maven"
-    directory: "/01_Backend"
+    directory: "/01_Backend/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     commit-message:
       prefix: "deps"
     open-pull-requests-limit: 5
