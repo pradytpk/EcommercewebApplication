@@ -1,7 +1,7 @@
 version: 2
 updates:
   - package-ecosystem: "npm" # or "bundler", "docker", "maven", etc.
-    directory: "./00_Frontend/" # Location of the package manifest
+    directory: "/00_Frontend/" # Location of the package manifest
     schedule:
       interval: "daily" # or "daily", "monthly"
     commit-message:
